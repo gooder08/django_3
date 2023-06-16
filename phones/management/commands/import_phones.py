@@ -11,13 +11,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         with open('phones.csv', 'r') as file:
             phones = list(csv.DictReader(file, delimiter=';'))
-           
-
         for phone in phones:
-            phone = Phone(name=phone.name)
+            # print(phone)
+            phone = Phone(name=phone['name'])
             phone.save()
-
         
+
+    # print(handle('phones.csv'))     
 
             # TODO: Добавьте сохранение модели
             # pass
